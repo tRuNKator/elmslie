@@ -2,7 +2,6 @@ package money.vivid.elmslie.core.store
 
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -13,6 +12,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.cancellable
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import money.vivid.elmslie.core.ElmScope
@@ -20,7 +20,6 @@ import money.vivid.elmslie.core.config.ElmslieConfig
 import money.vivid.elmslie.core.utils.resolveStoreKey
 
 @Suppress("TooGenericExceptionCaught")
-@OptIn(ExperimentalCoroutinesApi::class)
 class ElmStore<Event : Any, State : Any, Effect : Any, Command : Any>(
   initialState: State,
   private val reducer: StateReducer<Event, State, Effect, Command>,
@@ -62,14 +61,14 @@ class ElmStore<Event : Any, State : Any, Effect : Any, Command : Any>(
     scope.cancel()
   }
 
-  private fun CoroutineScope.handleEvent(event: Event) =
+  private fun CoroutineScope.handleEvent(event: Event) {
     launch(eventDispatcher) {
       try {
         storeListeners.forEach { it.onBeforeEvent(key, event, statesFlow.value) }
         logger.debug(message = "New event: $event", tag = key)
         val oldState = statesFlow.value
         val (state, effects, commands) = reducer.reduce(event, statesFlow.value)
-        statesFlow.value = state
+        statesFlow.update { state }
         storeListeners.forEach { it.onAfterEvent(key, state, oldState, event) }
         effects.forEach { effect -> if (isActive) dispatchEffect(effect) }
         commands.forEach { if (isActive) executeCommand(it) }
@@ -80,6 +79,7 @@ class ElmStore<Event : Any, State : Any, Effect : Any, Command : Any>(
         logger.fatal(message = "You must handle all errors inside reducer", tag = key, error = t)
       }
     }
+  }
 
   private suspend fun dispatchEffect(effect: Effect) {
     storeListeners.forEach { it.onEffect(key, effect, statesFlow.value) }

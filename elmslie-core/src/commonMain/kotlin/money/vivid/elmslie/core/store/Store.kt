@@ -3,6 +3,7 @@ package money.vivid.elmslie.core.store
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.Dispatchers
 
 interface Store<Event : Any, Effect : Any, State : Any> {
 

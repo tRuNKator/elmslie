@@ -11,5 +11,9 @@ class OperationsBuilder<T : Any> {
     this?.let(list::add)
   }
 
+  operator fun Collection<T>.unaryPlus() {
+    list.addAll(this)
+  }
+
   internal fun build() = list
 }

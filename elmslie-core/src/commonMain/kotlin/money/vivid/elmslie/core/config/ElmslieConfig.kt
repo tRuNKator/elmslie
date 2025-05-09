@@ -7,7 +7,6 @@ import money.vivid.elmslie.core.logger.ElmslieLogConfiguration
 import money.vivid.elmslie.core.logger.ElmslieLogger
 import money.vivid.elmslie.core.logger.strategy.IgnoreLog
 import money.vivid.elmslie.core.store.StoreListener
-import money.vivid.elmslie.core.utils.ElmDispatcher
 
 object ElmslieConfig {
 
@@ -16,7 +15,7 @@ object ElmslieConfig {
     private set
 
   @Volatile
-  var elmDispatcher: CoroutineDispatcher = ElmDispatcher
+  var elmDispatcher: CoroutineDispatcher = Dispatchers.Default
     private set
 
   @Volatile

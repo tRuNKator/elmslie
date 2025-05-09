@@ -22,7 +22,7 @@ abstract class Actor<Command : Any, Event : Any> {
   protected fun <T : Any> Flow<T>.mapEvents(
     eventMapper: (T) -> Event? = { null },
     errorMapper: (error: Throwable) -> Event? = { null },
-  ) =
+  ): Flow<Event> =
     mapNotNull { eventMapper(it) }
       .catch { it.logErrorEvent(errorMapper)?.let { event -> emit(event) } ?: throw it }
 
