@@ -24,7 +24,7 @@ class ElmStore<Event : Any, State : Any, Effect : Any, Command : Any>(
   initialState: State,
   private val reducer: StateReducer<Event, State, Effect, Command>,
   private val actor: Actor<Command, out Event>,
-  storeListeners: Set<StoreListener<Event, State, Effect, Command>>? = null,
+  storeListeners: Set<StoreListener<Event, State, Effect, Command>> = emptySet(),
   override val startEvent: Event? = null,
   private val key: String = resolveStoreKey(reducer),
 ) : Store<Event, Effect, State> {
@@ -36,11 +36,8 @@ class ElmStore<Event : Any, State : Any, Effect : Any, Command : Any>(
 
   private val statesFlow: MutableStateFlow<State> = MutableStateFlow(initialState)
 
-  private val storeListeners: MutableSet<StoreListener<in Event, in State, in Effect, in Command>> =
-    mutableSetOf<StoreListener<in Event, in State, in Effect, in Command>>().apply {
-      ElmslieConfig.globalStoreListeners.forEach(::add)
-      storeListeners?.forEach(::add)
-    }
+  private val storeListeners: Set<StoreListener<in Event, in State, in Effect, in Command>> =
+    ElmslieConfig.globalStoreListeners + storeListeners
 
   override val scope = ElmScope("${key}Scope")
 
@@ -108,5 +105,4 @@ class ElmStore<Event : Any, State : Any, Effect : Any, Command : Any>(
   }
 }
 
-fun <Event : Any, State : Any, Effect : Any> Store<Event, State, Effect>.toCachedStore() =
-  EffectCachingElmStore(this)
+

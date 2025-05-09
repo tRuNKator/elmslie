@@ -20,7 +20,11 @@ import money.vivid.elmslie.core.ElmScope
  * ```
  */
 // TODO Should be moved to android artifact?
-class EffectCachingElmStore<Event : Any, State : Any, Effect : Any>(
+
+fun <Event : Any, Effect : Any, State : Any> Store<Event, Effect, State>.toCachedStore():
+  EffectCachingElmStore<Event, Effect, State> = EffectCachingElmStore(this)
+
+class EffectCachingElmStore<Event : Any, Effect : Any, State : Any>(
   private val elmStore: Store<Event, Effect, State>
 ) : Store<Event, Effect, State> by elmStore {
 
