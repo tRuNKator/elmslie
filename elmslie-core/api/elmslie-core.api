@@ -71,6 +71,10 @@ public final class money/vivid/elmslie/core/store/EffectCachingElmStore : money/
 	public fun stop ()V
 }
 
+public final class money/vivid/elmslie/core/store/EffectCachingElmStoreKt {
+	public static final fun toCachedStore (Lmoney/vivid/elmslie/core/store/Store;)Lmoney/vivid/elmslie/core/store/EffectCachingElmStore;
+}
+
 public final class money/vivid/elmslie/core/store/ElmStore : money/vivid/elmslie/core/store/Store {
 	public fun <init> (Ljava/lang/Object;Lmoney/vivid/elmslie/core/store/StateReducer;Lmoney/vivid/elmslie/core/store/Actor;Ljava/util/Set;Ljava/lang/Object;Ljava/lang/String;)V
 	public synthetic fun <init> (Ljava/lang/Object;Lmoney/vivid/elmslie/core/store/StateReducer;Lmoney/vivid/elmslie/core/store/Actor;Ljava/util/Set;Ljava/lang/Object;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -83,10 +87,6 @@ public final class money/vivid/elmslie/core/store/ElmStore : money/vivid/elmslie
 	public fun stop ()V
 }
 
-public final class money/vivid/elmslie/core/store/ElmStoreKt {
-	public static final fun toCachedStore (Lmoney/vivid/elmslie/core/store/Store;)Lmoney/vivid/elmslie/core/store/EffectCachingElmStore;
-}
-
 public final class money/vivid/elmslie/core/store/NoOpActor : money/vivid/elmslie/core/store/Actor {
 	public fun <init> ()V
 	public fun execute (Ljava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
@@ -97,11 +97,9 @@ public final class money/vivid/elmslie/core/store/NoOpReducer : money/vivid/elms
 }
 
 public final class money/vivid/elmslie/core/store/Result {
-	public fun <init> (Ljava/lang/Object;)V
 	public fun <init> (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
-	public synthetic fun <init> (Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Ljava/lang/Object;Ljava/util/List;)V
 	public fun <init> (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/Object;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Object;
 	public final fun component2 ()Ljava/util/List;
 	public final fun component3 ()Ljava/util/List;
@@ -163,6 +161,7 @@ public final class money/vivid/elmslie/core/store/StoreListener$DefaultImpls {
 public final class money/vivid/elmslie/core/store/dsl/OperationsBuilder {
 	public fun <init> ()V
 	public final fun unaryPlus (Ljava/lang/Object;)V
+	public final fun unaryPlus (Ljava/util/Collection;)V
 }
 
 public class money/vivid/elmslie/core/store/dsl/ResultBuilder {

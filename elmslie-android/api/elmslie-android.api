@@ -1,8 +1,8 @@
 public final class money/vivid/elmslie/android/ElmStoreLazyKt {
-	public static final fun elmStore (Landroidx/activity/ComponentActivity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
-	public static final fun elmStore (Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
-	public static synthetic fun elmStore$default (Landroidx/activity/ComponentActivity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
-	public static synthetic fun elmStore$default (Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
+	public static final fun elmStore (Landroidx/activity/ComponentActivity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
+	public static final fun elmStore (Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
+	public static synthetic fun elmStore$default (Landroidx/activity/ComponentActivity;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
+	public static synthetic fun elmStore$default (Landroidx/fragment/app/Fragment;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
 }
 
 public final class money/vivid/elmslie/android/RetainedElmStore : androidx/lifecycle/ViewModel {
@@ -13,10 +13,6 @@ public final class money/vivid/elmslie/android/RetainedElmStore : androidx/lifec
 }
 
 public final class money/vivid/elmslie/android/RetainedElmStore$Companion {
-}
-
-public final class money/vivid/elmslie/android/RetainedElmStoreFactory : androidx/lifecycle/AbstractSavedStateViewModelFactory {
-	public fun <init> (Landroidx/savedstate/SavedStateRegistryOwner;Landroid/os/Bundle;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)V
 }
 
 public final class money/vivid/elmslie/android/logger/DefaultLoggerConfigurationsKt {
@@ -71,9 +67,9 @@ public final class money/vivid/elmslie/android/renderer/ElmRendererDelegate$Defa
 }
 
 public final class money/vivid/elmslie/android/renderer/ElmRendererDelegateKt {
-	public static final fun androidElmStore (Lmoney/vivid/elmslie/android/renderer/ElmRendererDelegate;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
 	public static final fun androidElmStore (Lmoney/vivid/elmslie/android/renderer/ElmRendererDelegate;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
-	public static synthetic fun androidElmStore$default (Lmoney/vivid/elmslie/android/renderer/ElmRendererDelegate;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
+	public static final fun androidElmStore (Lmoney/vivid/elmslie/android/renderer/ElmRendererDelegate;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Lkotlin/Lazy;
 	public static synthetic fun androidElmStore$default (Lmoney/vivid/elmslie/android/renderer/ElmRendererDelegate;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
+	public static synthetic fun androidElmStore$default (Lmoney/vivid/elmslie/android/renderer/ElmRendererDelegate;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/Lazy;
 }
 
