@@ -14,7 +14,7 @@ afterEvaluate {
   val pom = publishingExtension.pom
   with(project.mavenPublishing) {
     checkPomRequiredFields(pom)
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    //publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
     coordinates(libraryGroup, project.name, libraryVersion)
